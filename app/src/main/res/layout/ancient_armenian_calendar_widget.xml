@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/widget_margin">
+
+    <TextView
+        android:id="@+id/appwidget_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/appwidget_text"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/appwidget_text"
+        android:textColor="#ffffff"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/appwidget_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/appwidget_hour"
+        android:contentDescription="@string/appwidget_text"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:text="@string/appwidget_text"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+
+</RelativeLayout>
