@@ -1,12 +1,12 @@
 package am.lernci.ancientarmeniancalendar;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
-import android.content.Intent;
 import android.widget.RemoteViews;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Implementation of App Widget functionality.
@@ -29,39 +29,17 @@ public class AncientArmenianCalendarWidget extends AppWidgetProvider {
     @Override
     public void onUpdate(final Context context, final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                for (int appWidgetId : appWidgetIds) {
+                    updateAppWidget(context, appWidgetManager, appWidgetId);
+                }
+            }
+        }, 5000, 5000);
+
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
         }
-    }
-
-    @Override
-    public void onEnabled(final Context context) {
-        super.onEnabled(context);
-        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(context, AlarmManagerBroadcastReceiver.class);
-        PendingIntent pi = PendingIntent.getBroadcast(context, 0, intent, 0);
-        //After after 3 seconds
-        if (am != null) {
-            am.setRepeating(
-                    AlarmManager.RTC_WAKEUP,
-                    System.currentTimeMillis() + 100 * 3,
-                    1000,
-                    pi
-            );
-        }
-        // face = Typeface.createFromAsset(context.getAssets(), "fonts/arm_bernhardd.ttf");
-        // Enter relevant functionality for when the first widget is created
-    }
-
-    @Override
-    public void onDisabled(final Context context) {
-        Intent intent = new Intent(context, AlarmManagerBroadcastReceiver.class);
-        PendingIntent sender = PendingIntent.getBroadcast(context, 0, intent, 0);
-        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        if (am != null) {
-
-            am.cancel(sender);
-        }
-        super.onDisabled(context);
     }
 }
