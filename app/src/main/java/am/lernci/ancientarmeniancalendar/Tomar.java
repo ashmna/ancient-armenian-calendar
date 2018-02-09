@@ -139,6 +139,10 @@ public class Tomar {
         return calendar.get(Calendar.DAY_OF_WEEK);
     }
 
+    int getHour() {
+        return calendar.get(Calendar.HOUR_OF_DAY);
+    }
+
     String getMonthName() {
         return MONTHS.get(getMonth());
     }
@@ -156,7 +160,7 @@ public class Tomar {
     }
 
     String getHourName() {
-        return getHourName(calendar.get(Calendar.HOUR_OF_DAY));
+        return getHourName(getHour());
     }
 
     static String getHourName(Integer hour) {
