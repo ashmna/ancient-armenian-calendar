@@ -3,7 +3,7 @@
     android:initialKeyguardLayout="@layout/ancient_armenian_calendar_widget"
     android:initialLayout="@layout/ancient_armenian_calendar_widget"
     android:minHeight="20dp"
-    android:minWidth="125dp"
-    android:previewImage="@drawable/example_appwidget_preview"
+    android:minWidth="180dp"
+    android:previewImage="@drawable/appwidget_preview"
     android:resizeMode="horizontal|vertical"
     android:widgetCategory="home_screen|keyguard" />

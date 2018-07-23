@@ -101,6 +101,9 @@ public class Tomar {
         calendar = new GregorianCalendar();
     }
 
+    public GregorianCalendar getCalendar() {
+        return calendar;
+    }
 
     private int getDaysDiff() {
         if (calendar.isLeapYear(calendar.get(Calendar.YEAR))) {
@@ -127,7 +130,7 @@ public class Tomar {
     }
 
     int getMonth() {
-        return (int) Math.ceil(getDayOfYear() / 30);
+        return (int) Math.ceil(getDayOfYear() / 30 + 1);
     }
 
     int getDayOfMonth() {
