@@ -36,7 +36,7 @@ public class AncientArmenianCalendarWidget extends AppWidgetProvider {
                     updateAppWidget(context, appWidgetManager, appWidgetId);
                 }
             }
-        }, 5000, 5000);
+        }, 0, 5000);
 
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
